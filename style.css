@@ -1,0 +1,252 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  body {
+    font-family: 'Open Sans', sans-serif;
+    background-color: #fdf6e3;
+    color: #4b3832;
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+  }
+
+  .sidebar {
+    width: 300px;
+    background: #f0e3ca;
+    padding: 2rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    overflow-y: auto;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #6b4c3b;
+  }
+
+  .sidebar nav a {
+    text-decoration: none;
+    color: #6b4c3b;
+    padding: 0.3rem 0;
+    border-left: 4px solid transparent;
+    transition: border-color 0.3s;
+  }
+
+  .sidebar nav a:hover,
+  .sidebar nav a.active {
+    border-left-color: #b08968;
+    color: #8b5e3c;
+  }
+
+  .main-content {
+    margin-left: 300px;
+    padding: 2rem;
+    flex-grow: 1;
+    max-width: calc(100% - 300px);
+    overflow-y: auto;
+  }
+
+  h1, h2 {
+    font-family: 'Cinzel', serif;
+    text-align: center;
+    color: #8b5e3c;
+  }
+
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+  }
+
+  section.block {
+    background: #fff;
+    border-radius: 15px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+
+  .block-header {
+    padding: 1rem 1.5rem;
+    background-color: #faedcd;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    user-select: none;
+  }
+
+  .block-header:hover {
+    background-color: #f1d9a7;
+  }
+
+  .block-content {
+    max-height: 0;
+    overflow: hidden;
+    background: #fffdf7;
+    padding: 0 1.5rem;
+    transition: max-height 0.5s ease, padding 0.3s ease;
+    font-size: 1rem;
+    color: #4b3832;
+  }
+
+  .block-content.open {
+    max-height: 1000px;
+    padding: 1rem 1.5rem;
+  }
+
+  .arrow {
+    border: solid #8b5e3c;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(0deg);
+    transition: transform 0.3s ease;
+    margin-left: 10px;
+  }
+
+  .arrow.open {
+    transform: rotate(90deg);
+  }
+
+  .block-content ul {
+    list-style: none;
+    padding-left: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .block-content ul li::before {
+    content: "• ";
+    color: #b08968;
+    font-weight: bold;
+  }
+
+  .btn-practice {
+    background: #d4a373;
+    width: 100%;
+    text-align: center;
+    font-weight: 700;
+    padding: 1rem;
+    border-radius: 25px;
+    margin-top: 1rem;
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    max-width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    transition: background-color 0.3s;
+  }
+
+  .btn-practice:hover {
+    background: #b77b57;
+  }
+
+  @media (max-width: 720px) {
+    body {
+      flex-direction: column;
+    }
+
+    .sidebar {
+      position: relative;
+      width: 100%;
+      height: auto;
+      flex-direction: row;
+      overflow-x: auto;
+      padding: 1rem;
+      gap: 1rem;
+    }
+
+    .sidebar nav a {
+      padding: 0.5rem 1rem;
+      border-left: none;
+      border-bottom: 3px solid transparent;
+    }
+
+    .sidebar nav a:hover,
+    .sidebar nav a.active {
+      border-bottom-color: #b08968;
+      color: #8b5e3c;
+    }
+
+    .main-content {
+      margin-left: 0;
+      padding: 1rem;
+      max-width: 100%;
+    }
+
+    section.block {
+      margin-bottom: 1.5rem;
+    }
+  }
+
+  /* Estilos para o tema escuro */
+body.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.dark-mode .main-content {
+  background-color: #1e1e1e;
+}
+
+.dark-mode .block {
+  background-color: #2d2d2d;
+  border-color: #444;
+}
+
+.dark-mode .block-header {
+  background-color: #333;
+  color: #f0f0f0;
+}
+
+.dark-mode .sidebar {
+  background-color: #252525;
+}
+
+.dark-mode .sidebar nav a {
+  color: #b0b0b0;
+}
+
+.dark-mode .sidebar nav a.active {
+  color: #ffffff;
+  background-color: #444;
+}
+
+.dark-mode .btn-practice {
+  background-color: #444;
+  color: #fff;
+}
+
+/* Botão de alternância */
+.theme-toggle {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #333;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.dark-mode .theme-toggle {
+  background: #f0f0f0;
+  color: #333;
+}

@@ -1,0 +1,477 @@
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Master Max - Língua Portuguesa</title>
+
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Open+Sans&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Open Sans', sans-serif;
+      background-color: #fdf6e3;
+      color: #4b3832;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+    }
+
+    .sidebar {
+      width: 300px;
+      background: #f0e3ca;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      position: fixed;
+      top: 0;
+      bottom: 0;
+      overflow-y: auto;
+      box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .main-content {
+      margin-left: 300px;
+      padding: 2rem;
+      flex-grow: 1;
+      max-width: calc(100% - 300px);
+      overflow-y: auto;
+    }
+
+    h1, h2 {
+      font-family: 'Cinzel', serif;
+    }
+
+    h1 {
+      color: #8b5e3c;
+      font-size: 2.5rem;
+      text-align: center;
+    }
+
+    h2 {
+      color: #8b5e3c;
+      text-align: center;
+    }
+
+    .card {
+      background: #fff9f0;
+      border-radius: 20px;
+      padding: 2rem 1.5rem;
+      display: flex;
+      flex-direction: column;
+      color: #4b3832;
+      transition: background 0.3s ease;
+    }
+
+    .card:hover {
+      background: #f7efd2;
+    }
+
+    .card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .card ul {
+      list-style: none;
+      padding-left: 1rem;
+    }
+
+    .card ul li::before {
+      content: "• ";
+      color: #b08968;
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #d4a373;
+      color: #fff;
+      border: none;
+      border-radius: 20px;
+      padding: 0.7rem 1.5rem;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 20px;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background: #b77b57;
+    }
+
+    section.block {
+      background: #fff;
+      border-radius: 15px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+      transition: all 0.3s ease;
+    }
+
+    .block-header {
+      padding: 1rem 1.5rem;
+      background-color: #faedcd;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .block-header:hover {
+      background-color: #f1d9a7;
+    }
+
+    .block-content {
+      max-height: 0;
+      overflow: hidden;
+      background: #fffdf7;
+      padding: 0 1.5rem;
+      transition: max-height 0.5s ease, padding 0.3s ease;
+    }
+
+    .block-content.open {
+      max-height: 1000px;
+      padding: 1rem 1.5rem;
+    }
+
+    .arrow {
+      transition: transform 0.3s ease;
+    }
+
+    .arrow.open {
+      transform: rotate(90deg);
+    }
+
+    .btn-practice {
+      background: #d4a373;
+      width: 100%;
+      text-align: center;
+      font-weight: 700;
+      padding: 1rem;
+      border-radius: 25px;
+      margin-top: 1rem;
+      display: block;
+      color: #fff;
+      text-decoration: none;
+    }
+
+    @media (max-width: 720px) {
+      body {
+        flex-direction: column;
+      }
+
+      .sidebar {
+        position: relative;
+        width: 100%;
+        height: auto;
+        flex-direction: row;
+        overflow-x: auto;
+        padding: 1rem;
+      }
+
+      .card {
+        width: 100%;
+        flex-shrink: 0;
+      }
+
+      .main-content {
+        margin-left: 0;
+        padding: 1rem;
+        max-width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <aside class="sidebar">
+    <div class="card">
+      <h2>Assuntos</h2>
+      <ul>
+        <li>Entrevista</li>
+        <li>Relato histórico</li>
+        <li>Poema narrativo</li>
+        <li>Carta pessoal</li>
+        <li>Texto dramático</li>
+        <li>Resenha</li>
+        <li>Resumo</li>
+        <li>Crônica</li>
+        <li>Tuíte</li>
+        <li>Lenda</li>
+        <li>Slam</li>
+      </ul>
+      <a href="#" class="btn">Acessa</a>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <h1>Língua Portuguesa</h1>
+
+    <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Entrevista
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é uma Entrevista?</strong></p>
+            <p>É um gênero textual que apresenta uma conversa formal entre o entrevistador e o entrevistado. Serve para coletar informações, opiniões ou relatos importantes.</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Uso de perguntas objetivas e diretas;</li>
+              <li>Finalidade informativa ou investigativa;</li>
+              <li>Linguagem clara e formal.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler e interpretar entrevistas, identificando pontos de vista;</li>
+              <li>Elaborar perguntas e respostas adequadas;</li>
+              <li>Produzir entrevistas escritas e orais.</li>
+            </ul>
+<br>        
+          <a href="entrevista.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Crônica
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é uma Crônica?</strong></p>
+            <p>É uma narrativa breve, que retrata acontecimentos do cotidiano, com linguagem simples e subjetiva.</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Linguagem informal e próxima do leitor;</li>
+              <li>Aborda acontecimentos cotidianos, às vezes com humor ou crítica social;</li>
+              <li>Reflexiva e subjetiva.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler crônicas, identificando o ponto de vista e a crítica implícita;</li>
+              <li>Produzir crônicas criativas e reflexivas.</li>
+            </ul>
+<br>        
+          <a href="cronica.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Poema
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é um Poema?</strong></p>
+            <p>É uma composição literária em versos, que explora ritmo, sonoridade, metáforas e emoções.</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Uso de linguagem figurada;</li>
+              <li>Estrutura organizada em versos e estrofes;</li>
+              <li>Explora sentimentos e reflexões.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler e interpretar poemas, identificando figuras de linguagem;</li>
+              <li>Produzir poemas autorais, explorando criatividade e estilo.</li>
+            </ul>
+<br>        
+          <a href="poema.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Artigo de Opinião
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é um Artigo de Opinião?</strong></p>
+            <p>É um texto argumentativo em que o autor defende seu ponto de vista sobre um tema atual, utilizando argumentos lógicos e convincentes.</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Defesa clara de um ponto de vista;</li>
+              <li>Uso de argumentos e dados que sustentam a opinião;</li>
+              <li>Linguagem formal e persuasiva.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Identificar a tese e os argumentos em artigos;</li>
+              <li>Produzir textos opinativos com coesão e coerência.</li>
+            </ul><br>
+          <a href="artigo de opinião.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Resenha
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é uma Resenha?</strong></p>
+            <p>Texto dissertativo-argumentativo que analisa, interpreta e emite opinião sobre uma obra (livro, filme, espetáculo, etc.).</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Resumo objetivo da obra;</li>
+              <li>Análise crítica com opinião fundamentada;</li>
+              <li>Linguagem clara, coesa e formal.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler resenhas, identificando argumentos e análises;</li>
+              <li>Escrever resenhas com base em critérios críticos.</li>
+            </ul><br>
+          <a href="resenha.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Notícia
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é uma Notícia?</strong></p>
+            <p>É um gênero textual informativo, que relata acontecimentos de interesse público de forma objetiva e imparcial.</p>
+        
+            <p><strong>Características:</strong></p>
+            <ul>
+              <li>Foco em fatos atuais e relevantes;</li>
+              <li>Estrutura: título, lead (resumo) e desenvolvimento;</li>
+              <li>Linguagem objetiva, direta e clara.</li>
+            </ul>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler e analisar notícias, identificando informações principais;</li>
+              <li>Produzir notícias seguindo a estrutura adequada.</li>
+            </ul>
+<br>        
+          <a href="noticia.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+      <section class="block">
+        <div class="block-header" role="button" tabindex="0" aria-expanded="false" onclick="toggleBlock(this)">
+          Fábula
+          <span class="arrow">▶</span>
+        </div>
+        <div class="block-content">
+            <p><strong>O que é uma Fábula?</strong></p>
+            <p>Fábula é um gênero textual narrativo curto, com personagens normalmente animais que falam e agem como seres humanos (personificação). A estrutura da fábula apresenta uma lição ou moral no final, transmitindo valores éticos e comportamentais.</p>
+        
+            <p><strong>Características principais:</strong></p>
+            <ul>
+              <li>Personificação (animais agem como humanos);</li>
+              <li>Estrutura simples: início, meio e fim;</li>
+              <li>Presença de um conflito que conduz à moral da história;</li>
+              <li>Linguagem objetiva, mas com intenção didática.</li>
+            </ul>
+        
+            <p><strong>Exemplo clássico:</strong></p>
+            <blockquote>
+              A lebre desafiou a tartaruga para uma corrida. Certa de que venceria, a lebre descansou no meio do caminho. A tartaruga, devagar e sempre, chegou primeiro ao final. <br>
+              <em>Moral:</em> A constância e a persistência superam a velocidade e a arrogância.
+            </blockquote>
+        
+            <p><strong>O que você aprenderá:</strong></p>
+            <ul>
+              <li>Ler e interpretar fábulas, identificando seus elementos essenciais;</li>
+              <li>Reconhecer a moral implícita;</li>
+              <li>Produzir suas próprias fábulas.</li>
+            </ul>
+<br>        
+          <a href="fabula.html" class="btn">Ver mais</a>
+        </div>
+      </section>
+      
+
+  <script>
+    function toggleBlock(header) {
+      const content = header.nextElementSibling;
+      const arrow = header.querySelector('.arrow');
+      const expanded = header.getAttribute('aria-expanded') === 'true';
+
+      header.setAttribute('aria-expanded', !expanded);
+      content.classList.toggle('open');
+      arrow.classList.toggle('open');
+    }
+
+    document.querySelectorAll('.block-header').forEach(header => {
+      header.addEventListener('keydown', function(event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          toggleBlock(this);
+        }
+      });
+    });
+
+    // Função para alternar o tema
+function toggleDarkMode() {
+  document.body.classList.toggle('dark-mode');
+  
+  // Salvar preferência no localStorage
+  const isDark = document.body.classList.contains('dark-mode');
+  localStorage.setItem('darkMode', isDark);
+  
+  // Atualizar ícone do botão
+  const icon = document.querySelector('.theme-toggle i');
+  if (isDark) {
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  } else {
+    icon.classList.remove('fa-sun');
+    icon.classList.add('fa-moon');
+  }
+}
+
+// Verificar preferência salva ao carregar a página
+function checkDarkModePreference() {
+  const darkMode = localStorage.getItem('darkMode') === 'true';
+  if (darkMode) {
+    document.body.classList.add('dark-mode');
+  }
+  
+  // Criar botão de alternância
+  const toggleBtn = document.createElement('button');
+  toggleBtn.className = 'theme-toggle';
+  toggleBtn.innerHTML = '<i class="fas fa-moon"></i>';
+  toggleBtn.title = 'Alternar tema';
+  toggleBtn.addEventListener('click', toggleDarkMode);
+  document.body.appendChild(toggleBtn);
+  
+  // Atualizar ícone inicial
+  if (darkMode) {
+    const icon = document.querySelector('.theme-toggle i');
+    icon.classList.remove('fa-moon');
+    icon.classList.add('fa-sun');
+  }
+}
+
+// Inicializar quando o DOM estiver carregado
+document.addEventListener('DOMContentLoaded', checkDarkModePreference);
+  </script>
+</body>
+
+</html>
